@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { useAppContext } from '../context/appContext'
 import Wrapper from '../assets/wrappers/Job'
 import JobInfo from './JobInfo'
+import { BiLink } from "react-icons/bi";
+
 
 const Job = ({
   _id,
@@ -13,11 +15,16 @@ const Job = ({
   jobType,
   createdAt,
   status,
+  resumeLink,
 }) => {
   const { setEditJob, deleteJob } = useAppContext()
 
   let date = moment(createdAt)
   date = date.format('MMM Do, YYYY')
+  const openUrl=(e)=>{
+    e.preventDefault();
+    window.open(resumeLink);
+  }
   return (
     <Wrapper>
       <header>
@@ -25,6 +32,9 @@ const Job = ({
         <div className='info'>
           <h5>{position}</h5>
           <p>{company}</p>
+          <p style={{cursor:"pointer"}} onClick={openUrl}>
+      Resume<BiLink/>
+            </p>
         </div>
       </header>
       <div className='content'>

@@ -28,6 +28,7 @@ import {
   CHANGE_PAGE,
   GET_CURRENT_USER_BEGIN,
   GET_CURRENT_USER_SUCCESS,
+  INVALID_URL,
 } from './actions';
 
 import { initialState } from './appContext';
@@ -39,6 +40,14 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: 'danger',
       alertText: 'Please provide all values!',
+    };
+  }
+  if (action.type === INVALID_URL) {
+    return {
+      ...state,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: 'Please provide valid URL!',
     };
   }
   if (action.type === CLEAR_ALERT) {
@@ -123,6 +132,7 @@ const reducer = (state, action) => {
       editJobId: '',
       position: '',
       company: '',
+      resumeLink:'',
       jobLocation: state.userLocation,
       jobType: 'full-time',
       status: 'pending',

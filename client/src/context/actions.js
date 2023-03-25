@@ -1,4 +1,5 @@
 export const DISPLAY_ALERT = 'SHOW_ALERT';
+export const INVALID_URL = 'INVALID_URL';
 export const CLEAR_ALERT = 'CLEAR_ALERT';
 
 export const SETUP_USER_BEGIN = 'SETUP_USER_BEGIN';

@@ -32,6 +32,7 @@ import {
   CHANGE_PAGE,
   GET_CURRENT_USER_BEGIN,
   GET_CURRENT_USER_SUCCESS,
+  INVALID_URL,
 } from './actions';
 
 const initialState = {
@@ -96,7 +97,10 @@ const AppProvider = ({ children }) => {
     dispatch({ type: DISPLAY_ALERT });
     clearAlert();
   };
-
+  const inValidUrlAlert = () => {
+    dispatch({type:INVALID_URL});
+    clearAlert();
+  };
   const clearAlert = () => {
     setTimeout(() => {
       dispatch({ type: CLEAR_ALERT });
@@ -162,13 +166,14 @@ const AppProvider = ({ children }) => {
   const createJob = async () => {
     dispatch({ type: CREATE_JOB_BEGIN });
     try {
-      const { position, company, jobLocation, jobType, status } = state;
+      const { position, company, jobLocation, jobType, status,resumeLink } = state;
       await authFetch.post('/jobs', {
         position,
         company,
         jobLocation,
         jobType,
         status,
+        resumeLink,
       });
       dispatch({ type: CREATE_JOB_SUCCESS });
       dispatch({ type: CLEAR_VALUES });
@@ -295,6 +300,7 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         displayAlert,
+        inValidUrlAlert,
         setupUser,
         toggleSidebar,
         logoutUser,

@@ -18,13 +18,14 @@ const Landing = () => {
           {/* info */}
           <div className='info'>
             <h1>
-              job <span>tracking</span> app
+              <span>Job</span> Tracker
             </h1>
             <p>
-              I'm baby wayfarers hoodie next level taiyaki brooklyn cliche blue
-              bottle single-origin coffee chia. Aesthetic post-ironic venmo,
-              quinoa lo-fi tote bag adaptogen everyday carry meggings +1 brunch
-              narwhal.
+            Keep track of all your job applications in one place with our intuitive app.
+Say goodbye to missed deadlines and lost opportunities with our powerful application tracking system.
+Make your job search more efficient and effective with our comprehensive job application tracker.
+Stay organized and stay ahead of the competition with our easy-to-use dashboard.
+Join thousands of satisfied job seekers who have found their dream jobs with our application tracking app.
             </p>
             <Link to='/register' className='btn btn-hero'>
               Login/Register

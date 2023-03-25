@@ -27,6 +27,11 @@ const JobSchema = new mongoose.Schema(
       default: 'Bangalore',
       required: true,
     },
+    resumeLink: {
+      type: String,
+      default: '',
+      required: false,
+    },
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: 'User',

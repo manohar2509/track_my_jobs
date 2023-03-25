@@ -6,7 +6,7 @@ import {
   } from 'recharts'
   
   const PieChartComponent = ({ data }) => {
-        const newData = [{name:"full-time",value:data['full-time']},{name:"part-time",value:data['part-time']},{name:"internship",value:data['internship']},{name:"remote",value:data['remote']}];
+        const newData = [{name:"full-time",value:data['full-time'],fill:"#00ccff"},{name:"part-time",value:data['part-time'],fill:"#33ffad"},{name:"internship",value:data['internship'],fill:"#ffa31a"},{name:"remote",value:data['remote'],fill:"#ffff1a"}];
 
         const renderCustomizedLabel = ({
             x, y, name,value
@@ -23,7 +23,7 @@ import {
     //create a pie chart with the data from the api
         <ResponsiveContainer width='100%' height={300}>
             <PieChart>
-                <Pie data={newData} dataKey='value' nameKey='name' cx='50%' cy='50%' outerRadius={80} fill='#2cb1bc' label={renderCustomizedLabel} >
+                <Pie data={newData} dataKey='value' nameKey='name' cx='50%' cy='50%' fill={"#fff"} label={renderCustomizedLabel} >
                 <Tooltip />
                 </Pie>
             </PieChart>

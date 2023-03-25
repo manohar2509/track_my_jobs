@@ -1,16 +1,18 @@
 import { useAppContext } from '../context/appContext'
 import StatItem from './StatItem'
-import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from 'react-icons/fa'
+import {  FaCalendarCheck } from 'react-icons/fa'
+import { MdPendingActions } from "react-icons/md";
+import { ImCross } from "react-icons/im";
 import Wrapper from '../assets/wrappers/StatsContainer'
 
 const StatsContainer = () => {
-  const { stats,jobTypeStats } = useAppContext();
+  const { stats } = useAppContext();
 
   const defaultStats = [
     {
       title: 'PENDING APPLICATIONS',
       count: stats.pending || 0,
-      icon: <FaSuitcaseRolling />,
+      icon: <MdPendingActions />,
       color: '#e9b949',
       bcg: '#fcefc7',
     },
@@ -24,7 +26,7 @@ const StatsContainer = () => {
     {
       title: 'JOBS DECLINED',
       count: stats.declined || 0,
-      icon: <FaBug />,
+      icon: <ImCross />,
       color: '#d66a6a',
       bcg: '#ffeeee',
     },
